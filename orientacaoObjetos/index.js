@@ -5,11 +5,17 @@ class Cliente {
 
 class ContaCorrente {
     agencia;
-    saldo;
+    _saldo = 0;  // qual um atributo tiver o _(underline) antes do nome ele é privado, não se deve mexer nele fora da classe
+                // Há uma proposta de usar o # mas ainda não foi incluida na linguagem oficialmente
+    sacar(valor) {
+        if (this._saldo >= valor) {
+            this._saldo -= valor
+        }
+    }
 
-    sacar(valor){
-        if (this.saldo >= valor) {
-            this.saldo -= valor
+    depositar(valor) {
+        if (valor > 0) {
+            this._saldo += valor
         }
     }
 }
@@ -24,15 +30,10 @@ cliente2.nome = "Ivana"
 cliente2.cpf = "33344455566"
 
 const contaCorrenteRafael = new ContaCorrente()
-contaCorrenteRafael.saldo = 0
 contaCorrenteRafael.agencia = 1001
 
-console.log(contaCorrenteRafael.saldo)
-contaCorrenteRafael.saldo = 100
-console.log(contaCorrenteRafael.saldo)
-contaCorrenteRafael.sacar(520)
 
-console.log(contaCorrenteRafael.saldo)
+contaCorrenteRafael.depositar(100)
+contaCorrenteRafael.sacar(50)
 
-console.log(cliente1)
-console.log(cliente2)
+console.log(contaCorrenteRafael)
