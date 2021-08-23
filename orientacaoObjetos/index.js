@@ -1,25 +1,5 @@
-class Cliente {
-    nome;
-    cpf;
-}
-
-class ContaCorrente {
-    agencia;
-    _saldo = 0;  // qual um atributo tiver o _(underline) antes do nome ele é privado, não se deve mexer nele fora da classe
-                // Há uma proposta de usar o # mas ainda não foi incluida na linguagem oficialmente
-    sacar(valor) {
-        if (this._saldo >= valor) {
-            this._saldo -= valor
-        }
-    }
-
-    depositar(valor) {
-        if (valor > 0) {
-            this._saldo += valor
-        }
-    }
-}
-
+import {Cliente} from "./Cliente.js" 
+import {ContaCorrente} from "./ContaCorrente.js"
 
 const cliente1 = new Cliente()
 cliente1.nome = "Rafael"
@@ -32,8 +12,8 @@ cliente2.cpf = "33344455566"
 const contaCorrenteRafael = new ContaCorrente()
 contaCorrenteRafael.agencia = 1001
 
-
 contaCorrenteRafael.depositar(100)
-contaCorrenteRafael.sacar(50)
+const valorSacado = contaCorrenteRafael.sacar(50)
+console.log(`Valor sacado: ${valorSacado}`)
 
 console.log(contaCorrenteRafael)
