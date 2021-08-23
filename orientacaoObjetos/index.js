@@ -1,16 +1,38 @@
-const cliente1Nome = "Rafael"
-const cliente1CPF = "11122233344"
-const cliente1Agencia = 1001
-const cliente1Saldo = 0
+class Cliente {
+    nome;
+    cpf;
+}
 
-const cliente2Nome = "Ivana"
-const cliente2CPF = "33344455566"
-const cliente2Agencia = 1001
-const cliente2Saldo = 0
+class ContaCorrente {
+    agencia;
+    saldo;
 
-const cliente3Nome = "Valentina"
-const cliente3CPF = "22233344455"
-const cliente3Agencia = 1001
-const cliente3Saldo = 0
+    sacar(valor){
+        if (this.saldo >= valor) {
+            this.saldo -= valor
+        }
+    }
+}
 
-console.log(cliente1Nome)
+
+const cliente1 = new Cliente()
+cliente1.nome = "Rafael"
+cliente1.cpf = "11122233344"
+
+const cliente2 = new Cliente()
+cliente2.nome = "Ivana"
+cliente2.cpf = "33344455566"
+
+const contaCorrenteRafael = new ContaCorrente()
+contaCorrenteRafael.saldo = 0
+contaCorrenteRafael.agencia = 1001
+
+console.log(contaCorrenteRafael.saldo)
+contaCorrenteRafael.saldo = 100
+console.log(contaCorrenteRafael.saldo)
+contaCorrenteRafael.sacar(520)
+
+console.log(contaCorrenteRafael.saldo)
+
+console.log(cliente1)
+console.log(cliente2)
