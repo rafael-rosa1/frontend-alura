@@ -15,11 +15,10 @@ contaCorrenteRafael.cliente = cliente1
 contaCorrenteRafael.depositar(500)
 
 const conta2 = new ContaCorrente()
-conta2.cliente = cliente2
+conta2.cliente = cliente1
 conta2.agencia = 102
+conta2.depositar(200)
 
-contaCorrenteRafael.transferir(200, conta2)
-
-console.log(contaCorrenteRafael)
 console.log(conta2)
+console.log(conta2.saldo)
 
