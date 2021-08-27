@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <title>Ajax com JS Puro</title>
     <link href="asserts/stylesheets/stilize/stilize.min.css" rel="stylesheet" type="text/css">
+    <script>
+        function (buscaCep) {
+        let xhr = new XMLHttpRequest();
+        let inputCep = document.querySelector('input[name=cep]');
+        let cep = inputCep.value.replace('-','');
+        let url = 'http://viacep.com.br/ws/' + cep + '/json';
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4) {
+                if(xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+        xhr.send();
+    }
+  
+    </script>
 </head>
 <body>
     <form class="o-form">
